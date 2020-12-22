@@ -281,3 +281,10 @@ export class Err<T,E> extends Result<T,E> {
   }
 }
 
+export const ok = <T>(value: T): Result<T, never> => {
+  return new Ok(value);
+}
+
+export const err = <_, E>(error: E): Result<_, E> => {
+  return new Err(error);
+}

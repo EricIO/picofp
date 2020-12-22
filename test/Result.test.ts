@@ -1,4 +1,4 @@
-import { Result, Ok, Err } from '../src/Result';
+import { Result, Ok, Err, ok, err } from '../src/Result';
 
 describe("Ok functions", () => {
   it("isOk should return true", () => {
@@ -60,6 +60,12 @@ describe("Ok functions", () => {
     const mapped = ok.flatMap((val) => new Ok(val.length))
     expect(mapped.isOk()).toBe(true);
     expect(mapped.unwrap()).toBe(6);
+  });
+
+  it("should be able to use the convenience function ok", () => {
+    const res = ok("test")
+    expect(res.isOk()).toBe(true);
+    expect(res.unwrap()).toBe("test");
   });
 });
 
@@ -125,5 +131,11 @@ describe("Err functions", () => {
     if (mapped.isErr()) {
       expect(mapped.error).toBe("Error");
     }
+  });
+
+  it("should be able to use the convenience function err", () => {
+    const res = err("error")
+    expect(res.isErr()).toBe(true);
+    if (res.isErr()) expect(res.error).toBe("error");
   });
 })
