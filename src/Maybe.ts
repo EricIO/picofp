@@ -234,3 +234,11 @@ export class None<T=never> extends Maybe<T> {
     return new None()
   }
 }
+
+export const some = <T>(value: T): Maybe<T> => {
+  return new Some(value);
+}
+
+export const none = <_>(): Maybe<_> => {
+  return new None()
+}

@@ -1,4 +1,4 @@
-import { Maybe, None, Some } from '../src/Maybe';
+import { Maybe, none, None, some, Some } from '../src/Maybe';
 
 describe("Some functions", () => {
   it("isSome should return true", () => {
@@ -61,6 +61,12 @@ describe("Some functions", () => {
     expect(mapped.isSome()).toBe(true);
     expect(mapped.unwrap()).toBe(6);
   });
+
+  it("should be able to use convenience function some", () => {
+    const s = some("some string");
+    expect(s.isSome()).toBe(true)
+    expect(s.unwrap()).toBe("some string");
+  });
 });
 
 describe("None functions", () => {
@@ -122,5 +128,10 @@ describe("None functions", () => {
     const none: Maybe<string> = new None();
     const mapped = none.flatMap((value) => new Some(value.length))
     expect(mapped.isNone()).toBe(true);
+  });
+
+  it("should be able to use convenience function none", () => {
+    const n = none();
+    expect(n.isNone()).toBe(true)
   });
 })
