@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { Maybe, Some, None } from './Maybe';
-import { Result, Ok, Err } from './Result';
+import { Maybe, Some, None, some, none } from './Maybe';
+import { Result, Ok, Err, ok, err } from './Result';
 
-export { Maybe, Some, None, Result, Ok, Err };
+export { Maybe, Some, None, Result, Ok, Err, some, none, ok, err };
