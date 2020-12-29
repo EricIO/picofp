@@ -1,6 +1,6 @@
 {
     "name": "picofp",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "A tiny library with some tiny types",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
